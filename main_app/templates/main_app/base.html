@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter URL</title>
+</head>
+<body>
+  {% block content %}{% endblock %}
+  <h1> Enter your URL </h1>
+    <form method="POST">
+      {% csrf_token %}
+        {{ form }}
+        <button type="submit"> Submit </button>
+    </form>
+</body>
+</html>
