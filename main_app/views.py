@@ -12,11 +12,9 @@ def get_url(request):
             form.save()
             url = form.cleaned_data.get('url_field')
 
-            if url.endswith('/'):
-                asyncio.run(async_requests.main(url))
-            else:
+            if not url.endswith('/'):
                 url += '/'
-                asyncio.run(async_requests.main(url))
+            asyncio.run(async_requests.main(url))
 
             return redirect('ok')
     else:
