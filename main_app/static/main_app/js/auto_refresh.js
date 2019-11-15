@@ -1,12 +1,12 @@
 function refresh() {
     $.ajax({
-        url: '{% url "status_checker:status_code" %}',
+        url: 'ajax/status_code/',
         success: function (data) {
-            $('#status').replaceWith($('#status', data)); // NOTE this
+            $('#status').replaceWith($('#status', data));
         }
     });
 }
 
 $(function () {
-    setInterval('refresh()', 1000);
+    setInterval('refresh()', 2000);
 });
