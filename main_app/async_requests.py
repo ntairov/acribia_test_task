@@ -11,17 +11,17 @@ def write_into_db(data):
 
 
 def write_status_codes_into_file(data):
-
     with open('status.txt', 'a+') as file:
         file.write(f'{data}\n')
 
 
 async def make_requests(session, url):
     async with session.head(url, allow_redirects=False) as response:
-        # print(f'Server response from {url}: {response.status} OK')
-        data = f'Server response from {url}: {response.status} OK'
-        # write_status_codes_into_file(data)
-        # write_into_db(data)
+        if response.status == 200:
+            print(f'Server response from {url}: {response.status} OK')
+            data = f'Server response from {url}: {response.status} OK'
+            write_status_codes_into_file(data)
+            write_into_db(data)
 
 
 async def main(url):
