@@ -29,5 +29,22 @@
       </div>
     </div>
   </div>
-<script src="{% static "main_app/js/auto_refresh.js" %}"></script>
+
+
+  <script>
+      function refresh() {
+          $.ajax({
+              url: '{% url "status_code" %}',
+              success: function (data) {
+                  $('#status').replaceWith($('#status', data)); // NOTE this
+              }
+          });
+      }
+
+      $(function () {
+          setInterval('refresh()', 1000);
+      });
+
+  </script>
+  {#<script  type="text/javascript"  src="{% static "main_app/js/auto_refresh.js" %}"></script>#}
 {% endblock %}

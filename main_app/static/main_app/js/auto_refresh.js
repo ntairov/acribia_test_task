@@ -1,6 +1,6 @@
 function refresh() {
     $.ajax({
-        url: "{% url 'status_checker:status_code' %}",
+        url: '{% url "status_checker:status_code" %}',
         success: function (data) {
             $('#status').replaceWith($('#status', data)); // NOTE this
         }
