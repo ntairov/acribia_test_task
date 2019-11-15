@@ -5,5 +5,5 @@ from .models import UrlField
 class UrlFieldForm(forms.ModelForm):
     class Meta:
         model = UrlField
-        fields = '__all__'
+        fields = ['url_field', ]
 

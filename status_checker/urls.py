@@ -15,11 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 from main_app import views as user_views
+
+
+app_name = 'status_checker'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user_views.get_url, name='get_url'),
-    path('ok/', user_views.ok, name='ok'),
+    path('ajax/status_code/', user_views.status, name='status_code'),
 ]
+
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

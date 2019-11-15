@@ -6,3 +6,10 @@ class UrlField(models.Model):
 
     def __str__(self):
         return f'{self.url_field}'
+
+
+class StatusCodeField(models.Model):
+    status = models.CharField(max_length=500)
+
+    def __str__(self):
+        return f'{self.status}'

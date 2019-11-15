@@ -1,0 +1,33 @@
+{% extends 'main_app/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+  <div>
+    <h1> Enter your URL </h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" class="btn btn-info"> Submit</button>
+    </form>
+  </div>
+
+  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Open Codes</button>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title w-100">Server Responses </h4>
+        </div>
+        <div class="modal-body" id="status">
+          {% for code in status_codes %}
+            <p> {{ code }} <p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="{% static "main_app/js/auto_refresh.js" %}"></script>
+{% endblock %}
