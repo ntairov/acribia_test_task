@@ -33,6 +33,8 @@ https://raw.githubusercontent.com/puniaze/dirs3arch/master/db/dirbuster/director
 
 ## Итоги :checkered_flag:
 
+<a href="https://imgflip.com/gif/3gmigj"><img src="https://i.imgflip.com/3gmigj.gif" title="made at imgflip.com"/></a>
+
 Ниже, я провел тесты асинхронных запросов, в качестве веб-сервера был взят всеми известный - http://youtube.com/
 
 Было сделано 3 вида асинхронных запроса:
