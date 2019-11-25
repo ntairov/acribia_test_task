@@ -1,4 +1,0 @@
-Server response from https://acribia.ru/legal: 200 OK
-Server response from https://acribia.ru/publications: 200 OK
-Server response from https://acribia.ru/solutions: 200 OK
-Server response from https://acribia.ru/contacts: 200 OK

@@ -11,8 +11,6 @@ def get_url(request):
         if form.is_valid():
             form.save()
             url = form.cleaned_data.get('url_field')
-            if not url.endswith('/'):
-                url += '/'
             asyncio.run(async_requests.main(url))
     else:
         form = UrlFieldForm()

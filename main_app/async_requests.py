@@ -7,7 +7,7 @@ from .models import StatusCodeField
 
 def write_into_db(data):
     p = StatusCodeField.objects.create(status=data)
-    p.save()
+    return p
 
 
 def write_status_codes_into_file(data):
@@ -18,7 +18,6 @@ def write_status_codes_into_file(data):
 async def make_requests(session, url):
     async with session.head(url, allow_redirects=False) as response:
         if response.status == 200:
-            print(f'Server response from {url}: {response.status} OK')
             data = f'Server response from {url}: {response.status} OK'
             write_status_codes_into_file(data)
             write_into_db(data)

@@ -7,3 +7,11 @@ class UrlFieldForm(forms.ModelForm):
         model = UrlField
         fields = ['url_field', ]
 
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        url = cleaned_data.get('url_field')
+        # If url is not empty and doesn't endswith '/'
+        if not url.endswith('/'):
+            url += '/'
+            cleaned_data['url_field'] = url
+        return cleaned_data
